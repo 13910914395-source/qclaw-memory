@@ -1,0 +1,25 @@
+{
+  "id": "munger-13-001",
+  "name": "芒格语录生成",
+  "status": "active",
+  "createdAt": "2026-05-24T05:01:52.144Z",
+  "updatedAt": "2026-05-24T05:01:52.145Z",
+  "agents": [
+    {
+      "id": "agent_j1d30kft",
+      "name": "Main Agent",
+      "role": "assistant",
+      "status": "idle",
+      "createdAt": "2026-05-24T05:01:52.144Z",
+      "model": "unknown",
+      "systemPrompt": ""
+    }
+  ],
+  "summary": {
+    "id": "summary_0t8mrth1",
+    "title": "芒格语录生成",
+    "createdAt": "2026-05-24T05:01:52.145Z",
+    "file": "summary_0t8mrth1.md"
+  },
+  "lastMessageCount": 14
+}

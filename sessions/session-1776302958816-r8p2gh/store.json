@@ -1,0 +1,25 @@
+{
+  "id": "session-1776302958816-r8p2gh",
+  "name": "会话摘要",
+  "status": "active",
+  "createdAt": "2026-04-16T01:30:38.142Z",
+  "updatedAt": "2026-04-16T01:30:38.142Z",
+  "agents": [
+    {
+      "id": "agent_fx3mhnac",
+      "name": "Main Agent",
+      "role": "assistant",
+      "status": "idle",
+      "createdAt": "2026-04-16T01:30:38.142Z",
+      "model": "unknown",
+      "systemPrompt": ""
+    }
+  ],
+  "summary": {
+    "id": "summary_w3sx9nv0",
+    "title": "会话摘要",
+    "createdAt": "2026-04-16T01:30:38.142Z",
+    "file": "summary_w3sx9nv0.md"
+  },
+  "lastMessageCount": 16
+}

@@ -1,0 +1,25 @@
+{
+  "id": "1bb1bf5d-aa81-4e0d-a4bc-af1efce08a0e",
+  "name": "A股ETF每日筛选",
+  "status": "active",
+  "createdAt": "2026-04-30T07:35:20.309Z",
+  "updatedAt": "2026-05-26T00:56:44.041Z",
+  "agents": [
+    {
+      "id": "agent_pdeccg9w",
+      "name": "Main Agent",
+      "role": "assistant",
+      "status": "idle",
+      "createdAt": "2026-04-30T07:35:20.309Z",
+      "model": "unknown",
+      "systemPrompt": ""
+    }
+  ],
+  "summary": {
+    "id": "summary_yp0ivtd0",
+    "title": "A股ETF每日筛选",
+    "createdAt": "2026-04-30T07:35:20.309Z",
+    "file": "summary_yp0ivtd0.md"
+  },
+  "lastMessageCount": 40
+}

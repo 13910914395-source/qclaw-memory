@@ -1,0 +1,25 @@
+{
+  "id": "fufa",
+  "name": "测试收到！我正常运行",
+  "status": "active",
+  "createdAt": "2026-04-27T10:23:29.217Z",
+  "updatedAt": "2026-05-25T09:38:29.515Z",
+  "agents": [
+    {
+      "id": "agent_f1399qlq",
+      "name": "Main Agent",
+      "role": "assistant",
+      "status": "idle",
+      "createdAt": "2026-04-27T10:23:29.217Z",
+      "model": "unknown",
+      "systemPrompt": ""
+    }
+  ],
+  "summary": {
+    "id": "summary_j7qz1pie",
+    "title": "测试收到！我正常运行",
+    "createdAt": "2026-04-27T10:23:29.217Z",
+    "file": "summary_j7qz1pie.md"
+  },
+  "lastMessageCount": 33
+}

@@ -1,0 +1,25 @@
+{
+  "id": "session-1776396482384-h7bkog",
+  "name": "华检联股权调整",
+  "status": "active",
+  "createdAt": "2026-04-17T04:23:40.372Z",
+  "updatedAt": "2026-04-17T07:45:12.779Z",
+  "agents": [
+    {
+      "id": "agent_3j9exo15",
+      "name": "Main Agent",
+      "role": "assistant",
+      "status": "idle",
+      "createdAt": "2026-04-17T04:23:40.372Z",
+      "model": "unknown",
+      "systemPrompt": ""
+    }
+  ],
+  "summary": {
+    "id": "summary_yroope4z",
+    "title": "华检联股权调整",
+    "createdAt": "2026-04-17T04:23:40.372Z",
+    "file": "summary_yroope4z.md"
+  },
+  "lastMessageCount": 113
+}

@@ -1,0 +1,25 @@
+{
+  "id": "munger-17-001",
+  "name": "会话摘要",
+  "status": "active",
+  "createdAt": "2026-05-01T09:03:12.789Z",
+  "updatedAt": "2026-05-01T09:03:12.790Z",
+  "agents": [
+    {
+      "id": "agent_7gs646tv",
+      "name": "Main Agent",
+      "role": "assistant",
+      "status": "idle",
+      "createdAt": "2026-05-01T09:03:12.789Z",
+      "model": "unknown",
+      "systemPrompt": ""
+    }
+  ],
+  "summary": {
+    "id": "summary_jonkaxxi",
+    "title": "会话摘要",
+    "createdAt": "2026-05-01T09:03:12.790Z",
+    "file": "summary_jonkaxxi.md"
+  },
+  "lastMessageCount": 4
+}

@@ -1,0 +1,25 @@
+{
+  "id": "7bc7b935-fa75-4776-bcd4-a5e5b6840565",
+  "name": "海口早报生成",
+  "status": "active",
+  "createdAt": "2026-04-20T02:48:52.043Z",
+  "updatedAt": "2026-04-22T03:03:59.165Z",
+  "agents": [
+    {
+      "id": "agent_35cxeuke",
+      "name": "Main Agent",
+      "role": "assistant",
+      "status": "idle",
+      "createdAt": "2026-04-20T02:48:52.043Z",
+      "model": "unknown",
+      "systemPrompt": ""
+    }
+  ],
+  "summary": {
+    "id": "summary_mg70vhey",
+    "title": "海口早报生成",
+    "createdAt": "2026-04-20T02:48:52.043Z",
+    "file": "summary_mg70vhey.md"
+  },
+  "lastMessageCount": 25
+}

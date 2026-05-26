@@ -1,0 +1,25 @@
+{
+  "id": "o9cq800ypi64bhjwcrycgdozzycg@im.wechat",
+  "name": "QClaw多会话轨迹",
+  "status": "active",
+  "createdAt": "2026-04-23T07:09:03.189Z",
+  "updatedAt": "2026-05-25T10:02:25.181Z",
+  "agents": [
+    {
+      "id": "agent_htif6uqn",
+      "name": "Main Agent",
+      "role": "assistant",
+      "status": "idle",
+      "createdAt": "2026-04-23T07:09:03.189Z",
+      "model": "unknown",
+      "systemPrompt": ""
+    }
+  ],
+  "summary": {
+    "id": "summary_omfnla68",
+    "title": "QClaw多会话轨迹",
+    "createdAt": "2026-04-23T07:09:03.189Z",
+    "file": "summary_omfnla68.md"
+  },
+  "lastMessageCount": 39
+}

@@ -1,0 +1,83 @@
+{
+  "version": 1,
+  "skills": {
+    "summarize": {
+      "name": "Summarize",
+      "zip_url": "https://lightmake.site/api/v1/download?slug=summarize",
+      "source": "skillhub",
+      "version": "1.0.0"
+    },
+    "github": {
+      "name": "Github",
+      "zip_url": "https://lightmake.site/api/v1/download?slug=github",
+      "source": "skillhub",
+      "version": "1.0.0"
+    },
+    "video-understanding": {
+      "name": "Video Understanding",
+      "zip_url": "https://lightmake.site/api/v1/download?slug=video-understanding",
+      "source": "skillhub",
+      "version": "1.1.0"
+    },
+    "whisper-transcribe": {
+      "name": "Whisper Transcribe",
+      "zip_url": "https://lightmake.site/api/v1/download?slug=whisper-transcribe",
+      "source": "skillhub",
+      "version": "1.0.0"
+    },
+    "video-summary": {
+      "name": "Video Summary",
+      "zip_url": "https://lightmake.site/api/v1/download?slug=video-summary",
+      "source": "skillhub",
+      "version": "1.6.4"
+    },
+    "quarkpan-backup-suite": {
+      "name": "QuarkPan Backup Suite",
+      "zip_url": "https://lightmake.site/api/v1/download?slug=quarkpan-backup-suite",
+      "source": "skillhub",
+      "version": "0.1.0"
+    },
+    "baidunetdisk": {
+      "name": "Baidunetdisk Skill",
+      "zip_url": "https://lightmake.site/api/v1/download?slug=baidunetdisk",
+      "source": "skillhub",
+      "version": "1.0.2"
+    },
+    "baidu-netdisk-skills": {
+      "name": "Baidu Netdisk Skills",
+      "zip_url": "https://lightmake.site/api/v1/download?slug=baidu-netdisk-skills",
+      "source": "skillhub",
+      "version": "1.0.0"
+    },
+    "frontend-design": {
+      "name": "Frontend Design",
+      "zip_url": "https://lightmake.site/api/v1/download?slug=frontend-design",
+      "source": "skillhub",
+      "version": "1.0.0"
+    },
+    "pdf": {
+      "name": "Pdf",
+      "zip_url": "https://lightmake.site/api/v1/download?slug=pdf",
+      "source": "skillhub",
+      "version": "0.1.0"
+    },
+    "pptx": {
+      "name": "pptx",
+      "zip_url": "https://lightmake.site/api/v1/download?slug=pptx",
+      "source": "skillhub",
+      "version": "1.0.0"
+    },
+    "ocr-local-v2": {
+      "name": "OCR Local V2",
+      "zip_url": "https://lightmake.site/api/v1/download?slug=ocr-local-v2",
+      "source": "skillhub",
+      "version": "1.0.0"
+    },
+    "ocr-space": {
+      "name": "OCR Space: Free OCR API",
+      "zip_url": "https://lightmake.site/api/v1/download?slug=ocr-space",
+      "source": "skillhub",
+      "version": "1.0.0"
+    }
+  }
+}

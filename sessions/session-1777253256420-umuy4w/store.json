@@ -1,0 +1,25 @@
+{
+  "id": "session-1777253256420-umuy4w",
+  "name": "UTM克隆成功启动",
+  "status": "active",
+  "createdAt": "2026-04-28T07:20:03.810Z",
+  "updatedAt": "2026-04-28T08:15:04.784Z",
+  "agents": [
+    {
+      "id": "agent_l98etgyx",
+      "name": "Main Agent",
+      "role": "assistant",
+      "status": "idle",
+      "createdAt": "2026-04-28T07:20:03.810Z",
+      "model": "unknown",
+      "systemPrompt": ""
+    }
+  ],
+  "summary": {
+    "id": "summary_jkkcv9fs",
+    "title": "UTM克隆成功启动",
+    "createdAt": "2026-04-28T07:20:03.810Z",
+    "file": "summary_jkkcv9fs.md"
+  },
+  "lastMessageCount": 25
+}

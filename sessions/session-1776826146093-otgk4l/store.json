@@ -1,0 +1,25 @@
+{
+  "id": "session-1776826146093-otgk4l",
+  "name": "毛选电子书",
+  "status": "active",
+  "createdAt": "2026-04-22T02:54:09.160Z",
+  "updatedAt": "2026-04-22T03:47:32.388Z",
+  "agents": [
+    {
+      "id": "agent_yzsidkkq",
+      "name": "agent-4cb9a074",
+      "role": "assistant",
+      "status": "idle",
+      "createdAt": "2026-04-22T02:54:09.160Z",
+      "model": "unknown",
+      "systemPrompt": ""
+    }
+  ],
+  "summary": {
+    "id": "summary_dhkeeuly",
+    "title": "毛选电子书",
+    "createdAt": "2026-04-22T02:54:09.160Z",
+    "file": "summary_dhkeeuly.md"
+  },
+  "lastMessageCount": 115
+}

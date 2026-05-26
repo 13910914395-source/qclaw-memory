@@ -1,0 +1,25 @@
+{
+  "id": "0651bc77-5134-4c02-a002-52c8fead3316",
+  "name": "A股价值筛选",
+  "status": "active",
+  "createdAt": "2026-04-30T05:03:37.493Z",
+  "updatedAt": "2026-04-30T05:03:37.493Z",
+  "agents": [
+    {
+      "id": "agent_wzzgi8nz",
+      "name": "Main Agent",
+      "role": "assistant",
+      "status": "idle",
+      "createdAt": "2026-04-30T05:03:37.493Z",
+      "model": "unknown",
+      "systemPrompt": ""
+    }
+  ],
+  "summary": {
+    "id": "summary_591gupdu",
+    "title": "A股价值筛选",
+    "createdAt": "2026-04-30T05:03:37.493Z",
+    "file": "summary_591gupdu.md"
+  },
+  "lastMessageCount": 4
+}

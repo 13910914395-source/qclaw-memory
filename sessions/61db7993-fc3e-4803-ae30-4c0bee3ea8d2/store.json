@@ -1,0 +1,25 @@
+{
+  "id": "61db7993-fc3e-4803-ae30-4c0bee3ea8d2",
+  "name": "暖心鸡汤",
+  "status": "active",
+  "createdAt": "2026-04-29T08:03:07.542Z",
+  "updatedAt": "2026-05-22T10:01:51.056Z",
+  "agents": [
+    {
+      "id": "agent_b7nhdnlw",
+      "name": "Main Agent",
+      "role": "assistant",
+      "status": "idle",
+      "createdAt": "2026-04-29T08:03:07.542Z",
+      "model": "unknown",
+      "systemPrompt": ""
+    }
+  ],
+  "summary": {
+    "id": "summary_qaahcgva",
+    "title": "暖心鸡汤",
+    "createdAt": "2026-04-29T08:03:07.542Z",
+    "file": "summary_qaahcgva.md"
+  },
+  "lastMessageCount": 4
+}

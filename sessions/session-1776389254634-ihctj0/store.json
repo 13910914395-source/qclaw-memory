@@ -1,0 +1,25 @@
+{
+  "id": "session-1776389254634-ihctj0",
+  "name": "管理制度脱敏处理",
+  "status": "active",
+  "createdAt": "2026-04-17T01:39:34.725Z",
+  "updatedAt": "2026-04-17T02:22:29.933Z",
+  "agents": [
+    {
+      "id": "agent_wldlg4d7",
+      "name": "Main Agent",
+      "role": "assistant",
+      "status": "idle",
+      "createdAt": "2026-04-17T01:39:34.725Z",
+      "model": "unknown",
+      "systemPrompt": ""
+    }
+  ],
+  "summary": {
+    "id": "summary_qbfz5h6r",
+    "title": "管理制度脱敏处理",
+    "createdAt": "2026-04-17T01:39:34.725Z",
+    "file": "summary_qbfz5h6r.md"
+  },
+  "lastMessageCount": 68
+}

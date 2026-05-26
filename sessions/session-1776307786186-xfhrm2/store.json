@@ -1,0 +1,25 @@
+{
+  "id": "session-1776307786186-xfhrm2",
+  "name": "应收账款与制度同步",
+  "status": "active",
+  "createdAt": "2026-04-16T03:43:17.279Z",
+  "updatedAt": "2026-04-16T04:29:14.138Z",
+  "agents": [
+    {
+      "id": "agent_1jn05pz9",
+      "name": "Main Agent",
+      "role": "assistant",
+      "status": "idle",
+      "createdAt": "2026-04-16T03:43:17.279Z",
+      "model": "unknown",
+      "systemPrompt": ""
+    }
+  ],
+  "summary": {
+    "id": "summary_rwvwaymj",
+    "title": "应收账款与制度同步",
+    "createdAt": "2026-04-16T03:43:17.279Z",
+    "file": "summary_rwvwaymj.md"
+  },
+  "lastMessageCount": 110
+}

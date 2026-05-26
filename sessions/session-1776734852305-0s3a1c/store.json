@@ -1,0 +1,25 @@
+{
+  "id": "session-1776734852305-0s3a1c",
+  "name": "文档整理修正",
+  "status": "active",
+  "createdAt": "2026-04-21T01:33:35.109Z",
+  "updatedAt": "2026-04-21T02:50:30.742Z",
+  "agents": [
+    {
+      "id": "agent_k1bsdsqo",
+      "name": "Main Agent",
+      "role": "assistant",
+      "status": "idle",
+      "createdAt": "2026-04-21T01:33:35.109Z",
+      "model": "unknown",
+      "systemPrompt": ""
+    }
+  ],
+  "summary": {
+    "id": "summary_fo1mlo2h",
+    "title": "文档整理修正",
+    "createdAt": "2026-04-21T01:33:35.109Z",
+    "file": "summary_fo1mlo2h.md"
+  },
+  "lastMessageCount": 34
+}

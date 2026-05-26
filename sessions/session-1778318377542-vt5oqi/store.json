@@ -1,0 +1,25 @@
+{
+  "id": "session-1778318377542-vt5oqi",
+  "name": "{\"sessionN",
+  "status": "active",
+  "createdAt": "2026-05-09T09:26:41.561Z",
+  "updatedAt": "2026-05-09T09:33:23.415Z",
+  "agents": [
+    {
+      "id": "agent_93uo782g",
+      "name": "Main Agent",
+      "role": "assistant",
+      "status": "idle",
+      "createdAt": "2026-05-09T09:26:41.561Z",
+      "model": "unknown",
+      "systemPrompt": ""
+    }
+  ],
+  "summary": {
+    "id": "summary_v5cl8yq1",
+    "title": "{\"sessionN",
+    "createdAt": "2026-05-09T09:26:41.561Z",
+    "file": "summary_v5cl8yq1.md"
+  },
+  "lastMessageCount": 118
+}

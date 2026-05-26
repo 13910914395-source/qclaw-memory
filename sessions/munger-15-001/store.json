@@ -1,0 +1,25 @@
+{
+  "id": "munger-15-001",
+  "name": "芒格每日三条",
+  "status": "active",
+  "createdAt": "2026-05-05T07:02:24.448Z",
+  "updatedAt": "2026-05-05T07:02:24.448Z",
+  "agents": [
+    {
+      "id": "agent_oq0bflgu",
+      "name": "Main Agent",
+      "role": "assistant",
+      "status": "idle",
+      "createdAt": "2026-05-05T07:02:24.448Z",
+      "model": "unknown",
+      "systemPrompt": ""
+    }
+  ],
+  "summary": {
+    "id": "summary_8frk6hly",
+    "title": "芒格每日三条",
+    "createdAt": "2026-05-05T07:02:24.448Z",
+    "file": "summary_8frk6hly.md"
+  },
+  "lastMessageCount": 4
+}

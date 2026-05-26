@@ -10,8 +10,19 @@
 .consolidate-state.*
 .stfolder/
 
+# 忽略 node_modules
+node_modules/
+
+# 忽略会话和缓存文件
+sessions/
+.skills/
+
 # 忽略敏感信息（如有）
 .secrets/
 .env
 *.key
 *.pem
+
+# 忽略日志文件
+*.log
+.logs/

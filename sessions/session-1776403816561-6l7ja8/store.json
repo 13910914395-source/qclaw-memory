@@ -1,0 +1,25 @@
+{
+  "id": "session-1776403816561-6l7ja8",
+  "name": "macOS自动登录配置",
+  "status": "active",
+  "createdAt": "2026-04-17T05:36:04.985Z",
+  "updatedAt": "2026-04-17T05:36:04.985Z",
+  "agents": [
+    {
+      "id": "agent_4m6hgsm8",
+      "name": "Main Agent",
+      "role": "assistant",
+      "status": "idle",
+      "createdAt": "2026-04-17T05:36:04.985Z",
+      "model": "unknown",
+      "systemPrompt": ""
+    }
+  ],
+  "summary": {
+    "id": "summary_9yqqhagp",
+    "title": "macOS自动登录配置",
+    "createdAt": "2026-04-17T05:36:04.985Z",
+    "file": "summary_9yqqhagp.md"
+  },
+  "lastMessageCount": 52
+}
