@@ -1,9 +1,9 @@
 {
   "id": "o9cq800ypi64bhjwcrycgdozzycg@im.wechat",
-  "name": "QClaw多会话轨迹",
+  "name": "定时任务修复",
   "status": "active",
   "createdAt": "2026-04-23T07:09:03.189Z",
-  "updatedAt": "2026-05-25T10:02:25.181Z",
+  "updatedAt": "2026-05-26T01:25:23.027Z",
   "agents": [
     {
       "id": "agent_htif6uqn",
@@ -17,9 +17,9 @@
   ],
   "summary": {
     "id": "summary_omfnla68",
-    "title": "QClaw多会话轨迹",
+    "title": "定时任务修复",
     "createdAt": "2026-04-23T07:09:03.189Z",
     "file": "summary_omfnla68.md"
   },
-  "lastMessageCount": 39
+  "lastMessageCount": 76
 }

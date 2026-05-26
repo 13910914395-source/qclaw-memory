@@ -1,9 +1,9 @@
 {
   "id": "47c4959f-af86-4b65-9d31-9bc563722f65",
-  "name": "早安播报05-07",
+  "name": "早安播报任务",
   "status": "active",
   "createdAt": "2026-05-03T00:04:51.069Z",
-  "updatedAt": "2026-05-07T00:03:05.521Z",
+  "updatedAt": "2026-05-26T01:36:24.248Z",
   "agents": [
     {
       "id": "agent_t0h3s7w5",
@@ -17,9 +17,9 @@
   ],
   "summary": {
     "id": "summary_8oirk7zz",
-    "title": "早安播报05-07",
+    "title": "早安播报任务",
     "createdAt": "2026-05-03T00:04:51.070Z",
     "file": "summary_8oirk7zz.md"
   },
-  "lastMessageCount": 30
+  "lastMessageCount": 20
 }
