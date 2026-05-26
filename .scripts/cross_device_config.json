@@ -1,0 +1,46 @@
+{
+  "devices": {
+    "mac_mini": {
+      "name": "Fa's的Mac mini",
+      "workspace": "/Users/fasimac/.qclaw/workspace",
+      "timezone": "Asia/Shanghai",
+      "sync_schedule": "0 8,12,20 * * *",
+      "api_endpoint": "http://localhost:8080"
+    },
+    "macbook_air": {
+      "name": "MacbookAir",
+      "workspace": "~/.qclaw/workspace",
+      "timezone": "Asia/Shanghai",
+      "sync_schedule": "0 8,12,20 * * *",
+      "api_endpoint": null
+    }
+  },
+  "sync_policy": {
+    "auto_commit": true,
+    "auto_push": false,
+    "conflict_resolution": "newer_wins",
+    "exclude_patterns": [
+      ".DS_Store",
+      "*.tmp",
+      ".openclaw/"
+    ]
+  },
+  "cross_device_tasks": [
+    {
+      "name": "memory_backup",
+      "trigger_device": "mac_mini",
+      "target_device": "macbook_air",
+      "schedule": "0 20 * * *",
+      "action": "sync_pull",
+      "enabled": false
+    },
+    {
+      "name": "daily_summary",
+      "trigger_device": "mac_mini",
+      "target_device": "macbook_air",
+      "schedule": "0 21 * * *",
+      "action": "generate_summary",
+      "enabled": false
+    }
+  ]
+}

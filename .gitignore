@@ -1,0 +1,17 @@
+# 忽略临时文件
+.DS_Store
+*.tmp
+*.bak
+*.swp
+*~
+
+# 忽略 OpenClaw 运行时文件
+.openclaw/
+.consolidate-state.*
+.stfolder/
+
+# 忽略敏感信息（如有）
+.secrets/
+.env
+*.key
+*.pem
