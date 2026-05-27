@@ -1,9 +1,9 @@
 {
   "id": "o9cq800ypi64bhjwcrycgdozzycg@im.wechat",
-  "name": "有道云笔记授权",
+  "name": "有道笔记与BP分析",
   "status": "active",
   "createdAt": "2026-04-23T07:09:03.189Z",
-  "updatedAt": "2026-05-27T01:46:03.329Z",
+  "updatedAt": "2026-05-27T08:56:57.726Z",
   "agents": [
     {
       "id": "agent_htif6uqn",
@@ -17,9 +17,9 @@
   ],
   "summary": {
     "id": "summary_omfnla68",
-    "title": "有道云笔记授权",
+    "title": "有道笔记与BP分析",
     "createdAt": "2026-04-23T07:09:03.189Z",
     "file": "summary_omfnla68.md"
   },
-  "lastMessageCount": 70
+  "lastMessageCount": 82
 }
