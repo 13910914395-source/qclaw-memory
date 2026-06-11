@@ -1,9 +1,9 @@
 {
   "id": "o9cq800ypi64bhjwcrycgdozzycg@im.wechat",
-  "name": "认知推送修复",
+  "name": "认知推送创建",
   "status": "active",
   "createdAt": "2026-04-23T07:09:03.189Z",
-  "updatedAt": "2026-06-11T01:44:58.267Z",
+  "updatedAt": "2026-06-11T04:02:19.891Z",
   "agents": [
     {
       "id": "agent_htif6uqn",
@@ -17,9 +17,9 @@
   ],
   "summary": {
     "id": "summary_omfnla68",
-    "title": "认知推送修复",
+    "title": "认知推送创建",
     "createdAt": "2026-04-23T07:09:03.189Z",
     "file": "summary_omfnla68.md"
   },
-  "lastMessageCount": 73
+  "lastMessageCount": 78
 }
