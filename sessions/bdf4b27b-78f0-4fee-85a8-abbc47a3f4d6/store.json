@@ -1,9 +1,9 @@
 {
   "id": "bdf4b27b-78f0-4fee-85a8-abbc47a3f4d6",
-  "name": "勘察招标日报",
+  "name": "招标日报",
   "status": "active",
   "createdAt": "2026-04-20T02:45:06.090Z",
-  "updatedAt": "2026-06-11T00:55:28.449Z",
+  "updatedAt": "2026-06-11T19:04:50.483Z",
   "agents": [
     {
       "id": "agent_bdgjl945",
@@ -17,9 +17,9 @@
   ],
   "summary": {
     "id": "summary_03a2rjca",
-    "title": "勘察招标日报",
+    "title": "招标日报",
     "createdAt": "2026-04-20T02:45:06.090Z",
     "file": "summary_03a2rjca.md"
   },
-  "lastMessageCount": 216
+  "lastMessageCount": 63
 }
