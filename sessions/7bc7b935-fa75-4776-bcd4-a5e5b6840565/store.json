@@ -1,9 +1,9 @@
 {
   "id": "7bc7b935-fa75-4776-bcd4-a5e5b6840565",
-  "name": "早报生成",
+  "name": "天气新闻早报",
   "status": "active",
   "createdAt": "2026-04-20T02:48:52.043Z",
-  "updatedAt": "2026-06-09T00:59:39.869Z",
+  "updatedAt": "2026-06-13T00:00:27.161Z",
   "agents": [
     {
       "id": "agent_35cxeuke",
@@ -17,9 +17,9 @@
   ],
   "summary": {
     "id": "summary_mg70vhey",
-    "title": "早报生成",
+    "title": "天气新闻早报",
     "createdAt": "2026-04-20T02:48:52.043Z",
     "file": "summary_mg70vhey.md"
   },
-  "lastMessageCount": 21
+  "lastMessageCount": 26
 }
