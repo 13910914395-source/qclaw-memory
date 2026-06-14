@@ -1,9 +1,9 @@
 {
   "id": "ab02bbc1-a818-4248-b702-0858e0b30e3f",
-  "name": "会话摘要",
+  "name": "心学晨读Day2",
   "status": "active",
   "createdAt": "2026-05-26T00:07:22.078Z",
-  "updatedAt": "2026-05-26T00:07:22.078Z",
+  "updatedAt": "2026-06-14T00:00:50.223Z",
   "agents": [
     {
       "id": "agent_6s0dgb03",
@@ -17,9 +17,9 @@
   ],
   "summary": {
     "id": "summary_z5p7mg4c",
-    "title": "会话摘要",
+    "title": "心学晨读Day2",
     "createdAt": "2026-05-26T00:07:22.078Z",
     "file": "summary_z5p7mg4c.md"
   },
-  "lastMessageCount": 12
+  "lastMessageCount": 14
 }
