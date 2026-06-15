@@ -1,9 +1,9 @@
 {
   "id": "7bc7b935-fa75-4776-bcd4-a5e5b6840565",
-  "name": "天气新闻早报",
+  "name": "海口早报",
   "status": "active",
   "createdAt": "2026-04-20T02:48:52.043Z",
-  "updatedAt": "2026-06-13T00:00:27.161Z",
+  "updatedAt": "2026-06-14T23:59:46.480Z",
   "agents": [
     {
       "id": "agent_35cxeuke",
@@ -17,9 +17,9 @@
   ],
   "summary": {
     "id": "summary_mg70vhey",
-    "title": "天气新闻早报",
+    "title": "海口早报",
     "createdAt": "2026-04-20T02:48:52.043Z",
     "file": "summary_mg70vhey.md"
   },
-  "lastMessageCount": 26
+  "lastMessageCount": 11
 }
