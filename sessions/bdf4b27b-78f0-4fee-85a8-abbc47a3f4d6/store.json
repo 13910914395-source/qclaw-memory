@@ -1,9 +1,9 @@
 {
   "id": "bdf4b27b-78f0-4fee-85a8-abbc47a3f4d6",
-  "name": "海南招标日报",
+  "name": "勘察招标日报",
   "status": "active",
   "createdAt": "2026-04-20T02:45:06.090Z",
-  "updatedAt": "2026-06-15T19:04:21.306Z",
+  "updatedAt": "2026-06-16T19:07:00.630Z",
   "agents": [
     {
       "id": "agent_bdgjl945",
@@ -17,9 +17,9 @@
   ],
   "summary": {
     "id": "summary_03a2rjca",
-    "title": "海南招标日报",
+    "title": "勘察招标日报",
     "createdAt": "2026-04-20T02:45:06.090Z",
     "file": "summary_03a2rjca.md"
   },
-  "lastMessageCount": 39
+  "lastMessageCount": 98
 }
