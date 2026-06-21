@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updatedAt": "2026-06-21T00:03:32.266Z",
+  "updatedAt": "2026-06-21T04:01:08.483Z",
   "entries": {
     "memory:memory/2026-04-23.md:1:21": {
       "key": "memory:memory/2026-04-23.md:1:21",
@@ -320,13 +320,13 @@
       "endLine": 23,
       "source": "memory",
       "snippet": "# 2026-06-04 内存日志 ## 12:01 - 心学问诊·知行合一（午练） **任务来源：** cron 定时任务 `ba4822ca-4a67-4ef4-ba11-d4e50a6b3590` **执行情况：** - 晨读进度文件显示 cycle 1, day 1，概念「心即理」，序列：「心即理→知行合一→致良知→四句教→事上磨炼」 - 昨天（6月3日）晨读概念为「良知即是天」（「致良知」的展开） - 今天（6月4日）8:00 晨读任务已执行（状态 ok） - 基于学习序列推断今日概念应为「事上磨炼」 **输出内容：** - 场景：项目验收前夕客户突发变更需求 - 核心概念：「事上磨炼」——在具体事务中磨练心性 - 关键转变：从\"这事为什么会发生在我身上？\"→\"这事来了，良知让我怎么应对？\" - 小练习：停三秒问良知 **技术笔记：** - 进度文件 `/Users/fasimac/.qclaw/workspace/memory/心学晨读-progress.json` 未实时更新 - 无法直接获取今日晨读的完整内容，通过序列推断当前概念 - 有道云笔记存储了历史晨读内容（fileId: F1DEBA13F6D242828F8B51C9EC865EEA）",
-      "recallCount": 30,
+      "recallCount": 31,
       "dailyCount": 0,
       "groundedCount": 0,
-      "totalScore": 13.845268876735616,
+      "totalScore": 14.232786820713926,
       "maxScore": 0.729971070221762,
       "firstRecalledAt": "2026-06-08T01:29:20.392Z",
-      "lastRecalledAt": "2026-06-21T00:03:32.266Z",
+      "lastRecalledAt": "2026-06-21T04:01:08.483Z",
       "queryHashes": [
         "267df7f9d262",
         "600a8a5b7354",
@@ -356,7 +356,8 @@
         "e5fdc9ff2d6a",
         "00c4b4adc468",
         "bc277912de08",
-        "a8caacf0937f"
+        "a8caacf0937f",
+        "9e7b3e8cd61a"
       ],
       "recallDays": [
         "2026-06-08",
