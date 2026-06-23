@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updatedAt": "2026-06-22T04:01:44.854Z",
+  "updatedAt": "2026-06-23T00:02:46.196Z",
   "entries": {
     "memory:memory/2026-04-23.md:1:21": {
       "key": "memory:memory/2026-04-23.md:1:21",
@@ -152,13 +152,13 @@
       "endLine": 26,
       "source": "memory",
       "snippet": "### 09:11 - 定时任务排查与修复 **根因**: 5个定时任务的 sessionTarget 为 \"main\"，但 OpenClaw 要求 main session 任务必须用 payload.kind=systemEvent，这些任务用的是 agentTurn 格式，导致每次都被 skip **修复**: 将所有5个任务从 main session 改为 isolated session - 心灵警句_早间(42d25f8c) → isolated ✅ 已验证ok - 心灵警句_午间(a1fcec76) → isolated - 心灵警句_晚间(8282a06a) → isolated - 海口天气早报(7bc7b935) → isolated - 海南勘察招标日报(bdf4b27b) → isolated **验证**: 手动触发早间警句成功推送微信消息 ### 09:18 - 补发昨日心学三条内容 用户反馈昨天心学学习内容没收到，要求三条一起发送。已基于当前进度(day 1, 心即理)生成并发送： - 晨读·心即理概念讲解+思考题 - 午练·知行合一场景(开会不敢说异议)+微练习 - 夜思·《传习录》\"心即理也\"原文+白话+今夜反思 原因：此前任务session配置为main导致skipped，已修复为isolated ### 09:12-09:20 - 企业微信推送故障修复 **确认**: 手机端企业微信能收到当前会话直发消息，但cron独立session推送超时失败 **原因**: cron独立session的WebSocket连接不稳定，Ma",
-      "recallCount": 12,
+      "recallCount": 13,
       "dailyCount": 0,
       "groundedCount": 0,
-      "totalScore": 4.578250041604042,
+      "totalScore": 4.966840356588364,
       "maxScore": 0.40791468918323515,
       "firstRecalledAt": "2026-06-02T00:02:35.768Z",
-      "lastRecalledAt": "2026-06-19T00:02:52.745Z",
+      "lastRecalledAt": "2026-06-23T00:02:46.196Z",
       "queryHashes": [
         "1244f5a33dc8",
         "a5f07793cedb",
@@ -171,7 +171,8 @@
         "676b477837ab",
         "4c03668753a4",
         "b1e9ed5f0fa1",
-        "f7ab70c394f3"
+        "f7ab70c394f3",
+        "a64b717d046a"
       ],
       "recallDays": [
         "2026-06-02",
@@ -181,7 +182,8 @@
         "2026-06-11",
         "2026-06-13",
         "2026-06-17",
-        "2026-06-19"
+        "2026-06-19",
+        "2026-06-23"
       ],
       "conceptTags": [
         "payload.kind",
@@ -201,13 +203,13 @@
       "endLine": 49,
       "source": "memory",
       "snippet": "- 用户有心学学习习惯，需要定时接收心学内容（晨读、午练、夜思三条） - 用户使用有道云笔记保存学习内容 ### 09:45 - 有道云笔记修复成功，内容已写入 API Key 刷新后 MCP 连接正常（iv1c1DMGzCKML4Ag-...） 已保存第一条心学笔记： - 标题：心学晨读·知行合一.md - fileId: F1DEBA13F6D242828F8B51C9EC865EEA ### 12:04 - 心学午练写入有道云笔记 - 标题：心学问诊·知行合一.md - fileId: E6EFBB269B98421AAEFB5A1C43F80E50 - 今日心学内容已写入两篇：晨读(知行合一概念) + 午练(会议室场景练习) - 夜思待用户确认是否写入 ### 12:25 - 有道云笔记写入 - 成功写入今日心学晨读内容（知行合一概念）到有道云笔记 - 成功写入今日心学问诊内容（会议室被质疑场景练习）到有道云笔记 - 待写入今日心学夜思内容到有道云笔记 - 用户习惯将心学学习内容保存到有道云笔记 ### 12:25 - 心学夜思写入有道云笔记 - 标题：心学夜思·知行合一.md - fileId: 81973B15348F45F98F58F65C42FA6674 - 今日心学三条（晨读/午练/夜思）全部成功写入有道云笔记 - 有道云笔记 API Key 已修复，后续定时推送内容可自动同步保存 ### 16:54 - 有道云笔记写入",
-      "recallCount": 21,
+      "recallCount": 22,
       "dailyCount": 0,
       "groundedCount": 0,
-      "totalScore": 7.9716751933097845,
+      "totalScore": 8.363791686296464,
       "maxScore": 0.40350345671176907,
       "firstRecalledAt": "2026-06-02T00:03:55.292Z",
-      "lastRecalledAt": "2026-06-19T04:01:31.722Z",
+      "lastRecalledAt": "2026-06-23T00:02:46.196Z",
       "queryHashes": [
         "a5f07793cedb",
         "cfde1a74691c",
@@ -228,7 +230,8 @@
         "a28f51bbbb28",
         "5344aa8fde5b",
         "f7ab70c394f3",
-        "e5fdc9ff2d6a"
+        "e5fdc9ff2d6a",
+        "a64b717d046a"
       ],
       "recallDays": [
         "2026-06-02",
@@ -244,7 +247,8 @@
         "2026-06-16",
         "2026-06-17",
         "2026-06-18",
-        "2026-06-19"
+        "2026-06-19",
+        "2026-06-23"
       ],
       "conceptTags": [
         "知行合一.md",
@@ -322,15 +326,14 @@
       "endLine": 23,
       "source": "memory",
       "snippet": "# 2026-06-04 内存日志 ## 12:01 - 心学问诊·知行合一（午练） **任务来源：** cron 定时任务 `ba4822ca-4a67-4ef4-ba11-d4e50a6b3590` **执行情况：** - 晨读进度文件显示 cycle 1, day 1，概念「心即理」，序列：「心即理→知行合一→致良知→四句教→事上磨炼」 - 昨天（6月3日）晨读概念为「良知即是天」（「致良知」的展开） - 今天（6月4日）8:00 晨读任务已执行（状态 ok） - 基于学习序列推断今日概念应为「事上磨炼」 **输出内容：** - 场景：项目验收前夕客户突发变更需求 - 核心概念：「事上磨炼」——在具体事务中磨练心性 - 关键转变：从\"这事为什么会发生在我身上？\"→\"这事来了，良知让我怎么应对？\" - 小练习：停三秒问良知 **技术笔记：** - 进度文件 `/Users/fasimac/.qclaw/workspace/memory/心学晨读-progress.json` 未实时更新 - 无法直接获取今日晨读的完整内容，通过序列推断当前概念 - 有道云笔记存储了历史晨读内容（fileId: F1DEBA13F6D242828F8B51C9EC865EEA）",
-      "recallCount": 33,
+      "recallCount": 34,
       "dailyCount": 0,
       "groundedCount": 0,
-      "totalScore": 15.040907974426199,
+      "totalScore": 15.498798106495787,
       "maxScore": 0.729971070221762,
       "firstRecalledAt": "2026-06-08T01:29:20.392Z",
-      "lastRecalledAt": "2026-06-22T04:01:44.854Z",
+      "lastRecalledAt": "2026-06-23T00:02:46.196Z",
       "queryHashes": [
-        "267df7f9d262",
         "600a8a5b7354",
         "9f8b960fcaf4",
         "29db549aa40c",
@@ -361,7 +364,8 @@
         "a8caacf0937f",
         "9e7b3e8cd61a",
         "1312ad6391b5",
-        "54af0249e1f4"
+        "54af0249e1f4",
+        "a64b717d046a"
       ],
       "recallDays": [
         "2026-06-08",
@@ -378,7 +382,8 @@
         "2026-06-19",
         "2026-06-20",
         "2026-06-21",
-        "2026-06-22"
+        "2026-06-22",
+        "2026-06-23"
       ],
       "conceptTags": [
         "users/fasimac",
@@ -860,13 +865,13 @@
       "endLine": 59,
       "source": "memory",
       "snippet": "1. **isolated session 输出噪音**：cron 在 isolated session 运行时，`announce` 推送内容是 messages 数组的第一条。如果 messages 中有非用户端消息（比如 tool_call 结果），可能推送的是 \"Let me fetch the latest US market data.\" 这类工具消息，而非最终回答 2. **推送速率/去重机制**：gateway 对短时间内的重复推送可能有去重逻辑 #### 结论 - 可信度：⚠️ 推测（需要更多数据验证） - 需要进一步排查 cron 独立 session 的 `announce` 推送到底取的哪条 message 作为内容 - 旧问题中的认知推送(12:30)之所以成功，是因为那段对话中 messages 的首条是完整的用户端回答 #### ⏰ 定时任务完整汇总（截至2026-06-12） | 时间 | 任务 | 状态 | 最近推送 | |------|------|------|---------| | 06:00 | 心学晨读·核心概念 | active | 待确认 | | 07:30 | 认知推送_早间 | active | 待确认 | | 08:00 | 心灵警句_早间 | active | 待确认 | | 08:00 | 海口天气早报 | active | 待确认 | | 08:00 | **美股行情早报** (新增) | active | ❌ 用户未收到 | | 08:30 | 海南勘察招标日报 | active | 待确认 | | 12:0",
-      "recallCount": 12,
+      "recallCount": 13,
       "dailyCount": 0,
       "groundedCount": 0,
-      "totalScore": 5.08695135818297,
+      "totalScore": 5.482727314098422,
       "maxScore": 0.6272912378244386,
       "firstRecalledAt": "2026-06-13T00:00:20.485Z",
-      "lastRecalledAt": "2026-06-22T04:01:44.854Z",
+      "lastRecalledAt": "2026-06-23T00:02:46.196Z",
       "queryHashes": [
         "676b477837ab",
         "837c5141562a",
@@ -879,7 +884,8 @@
         "f7ab70c394f3",
         "a8caacf0937f",
         "1312ad6391b5",
-        "54af0249e1f4"
+        "54af0249e1f4",
+        "a64b717d046a"
       ],
       "recallDays": [
         "2026-06-13",
@@ -889,7 +895,8 @@
         "2026-06-18",
         "2026-06-19",
         "2026-06-21",
-        "2026-06-22"
+        "2026-06-22",
+        "2026-06-23"
       ],
       "conceptTags": [
         "gateway",
