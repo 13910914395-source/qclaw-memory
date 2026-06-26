@@ -28,6 +28,7 @@
 - 低空经济平台项目合作架构：国企51%+私企30-40%+技术方10-20%
 - 低空经济平台公司立项汇报方案已在6月12日完成DOCX审核修订和PPT生成
 - 6月12日生成低空经济平台公司立项汇报PPT（11页，深蓝+青+橙配色）
+- 用户要求暂停所有定时指令，已完成查看
 
 ## 文档字体规范（重要·强制）
 
@@ -49,8 +50,9 @@
 - Gateway调度器约每8天可能卡死，重启方法为openclaw gateway restart，重启后自动追补漏发任务；Gateway无法启动时必须在QClaw桌面应用中重新安装/重启Gateway服务以注入QCLAW_LLM_API_KEY环境变量，CLI直接重启会因环境变量缺失而失败
 - 低空经济平台公司立项汇报方案必备结构：项目摘要→行业研判→合作架构→运营盈利→实施计划→风险管控→附录
 - cron isolated session的announce推送可能推送工具调用消息而非最终回答，accountId配置后认知推送成功但美股行情仍失败，根因待确认
-- Gateway服务无法启动时检查QCLAW_LLM_API_KEY环境变量是否缺失
+- Gateway因缺少QCLAW_LLM_API_KEY环境变量无法启动时，需在QClaw桌面应用卸载并重装Gateway服务以重新注入环境变量
 - Gateway调度器卡死或无法启动的根本原因是QCLAW_LLM_API_KEY环境变量缺失，需在QClaw桌面应用重新安装/重启Gateway注入环境变量
+- Gateway恢复后定时任务正常工作，修复方法为在QClaw桌面应用卸载重装Gateway服务
 
 ## 定时任务配置（重要·技术经验）
 
