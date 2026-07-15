@@ -1,9 +1,9 @@
 {
   "id": "o9cq800ypi64bhjwcrycgdozzycg@im.wechat",
-  "name": "会话摘要",
+  "name": "记忆同步完成 ✅",
   "status": "active",
   "createdAt": "2026-04-23T07:09:03.189Z",
-  "updatedAt": "2026-06-26T08:27:25.817Z",
+  "updatedAt": "2026-07-15T01:54:30.984Z",
   "agents": [
     {
       "id": "agent_htif6uqn",
@@ -17,9 +17,9 @@
   ],
   "summary": {
     "id": "summary_omfnla68",
-    "title": "会话摘要",
+    "title": "记忆同步完成 ✅",
     "createdAt": "2026-04-23T07:09:03.189Z",
     "file": "summary_omfnla68.md"
   },
-  "lastMessageCount": 23
+  "lastMessageCount": 98
 }
