@@ -1,9 +1,9 @@
 {
   "id": "o9cq800ypi64bhjwcrycgdozzycg@im.wechat",
-  "name": "记忆同步完成 ✅",
+  "name": "定时任务修复",
   "status": "active",
   "createdAt": "2026-04-23T07:09:03.189Z",
-  "updatedAt": "2026-07-15T01:54:30.984Z",
+  "updatedAt": "2026-07-27T02:12:52.645Z",
   "agents": [
     {
       "id": "agent_htif6uqn",
@@ -17,9 +17,9 @@
   ],
   "summary": {
     "id": "summary_omfnla68",
-    "title": "记忆同步完成 ✅",
+    "title": "定时任务修复",
     "createdAt": "2026-04-23T07:09:03.189Z",
     "file": "summary_omfnla68.md"
   },
-  "lastMessageCount": 98
+  "lastMessageCount": 226
 }
