@@ -1,9 +1,9 @@
 {
   "id": "o9cq800ypi64bhjwcrycgdozzycg@im.wechat",
-  "name": "举报信审核与追款路径",
+  "name": "举报信与海报审核",
   "status": "active",
   "createdAt": "2026-04-23T07:09:03.189Z",
-  "updatedAt": "2026-08-05T06:34:14.995Z",
+  "updatedAt": "2026-08-06T03:10:46.008Z",
   "agents": [
     {
       "id": "agent_htif6uqn",
@@ -17,9 +17,9 @@
   ],
   "summary": {
     "id": "summary_omfnla68",
-    "title": "举报信审核与追款路径",
+    "title": "举报信与海报审核",
     "createdAt": "2026-04-23T07:09:03.189Z",
     "file": "summary_omfnla68.md"
   },
-  "lastMessageCount": 73
+  "lastMessageCount": 47
 }
