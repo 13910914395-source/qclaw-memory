@@ -1,177 +1,205 @@
 # -*- coding: utf-8 -*-
-"""生成《海南勘察招标日报》PDF（WPS 兼容 / 含中文）。
-本脚本仅产出“数据抓取状态报告”，不编造任何招标公告。"""
-import base64
-from io import BytesIO
 from reportlab.lib.pagesizes import A4
 from reportlab.lib.units import cm
 from reportlab.lib import colors
-from reportlab.lib.styles import getSampleStyleSheet, ParagraphStyle
+from reportlab.lib.styles import ParagraphStyle, getSampleStyleSheet
 from reportlab.lib.enums import TA_CENTER, TA_LEFT
-from reportlab.platypus import (SimpleDocTemplate, Paragraph, Spacer, Table,
-                                TableStyle, PageBreak, HRFlowable)
+from reportlab.platypus import (SimpleDocTemplate, Paragraph, Spacer, Table, TableStyle,
+                                PageBreak, HRFlowable)
 from reportlab.pdfbase import pdfmetrics
-from reportlab.pdfbase.ttfonts import TTFont
+from reportlab.pdfbase.cidfonts import UnicodeCIDFont
 
-REPORT_DATE = "2026-08-15"
-FONT_PATH = "/System/Library/Fonts/Supplemental/Arial Unicode.ttf"
-try:
-    pdfmetrics.registerFont(TTFont("CJK", FONT_PATH))
-    FONT = "CJK"
-except Exception as e:
-    pdfmetrics.registerFont(TTFont("CJK", "/System/Library/Fonts/STHeiti Light.ttc", subfontIndex=0))
-    FONT = "CJK"
+# Use built-in Adobe CJK font (no embedding needed, WPS-compatible)
+pdfmetrics.registerFont(UnicodeCIDFont('STSong-Light'))
+FONT = 'STSong-Light'
 
 styles = getSampleStyleSheet()
-def mk(name, **kw):
-    base = kw.pop("parent", styles["Normal"])
-    return ParagraphStyle(name, parent=base, fontName=FONT, **kw)
+def S(name, **kw):
+    base = dict(fontName=FONT, wordWrap='CJK')
+    base.update(kw)
+    return ParagraphStyle(name, **base)
 
-title_st  = mk("t", fontSize=26, leading=32, alignment=TA_CENTER, textColor=colors.HexColor("#1F3864"))
-sub_st    = mk("s", fontSize=13, leading=18, alignment=TA_CENTER, textColor=colors.HexColor("#404040"))
-h1_st     = mk("h1", fontSize=15, leading=20, textColor=colors.HexColor("#1F3864"), spaceBefore=10, spaceAfter=6)
-h2_st     = mk("h2", fontSize=12, leading=16, textColor=colors.HexColor("#2E5496"), spaceBefore=6, spaceAfter=3)
-body_st   = mk("b", fontSize=10.5, leading=16, alignment=TA_LEFT)
-cell_st   = mk("c", fontSize=9, leading=13)
-cell_h_st = mk("ch", fontSize=9, leading=13, textColor=colors.white)
-note_st   = mk("n", fontSize=10.5, leading=16, textColor=colors.HexColor("#9C0006"))
+title_style   = S('Title', fontSize=22, leading=30, alignment=TA_CENTER, spaceAfter=10)
+sub_style     = S('Sub',   fontSize=12, leading=18, alignment=TA_CENTER, textColor=colors.HexColor('#444444'))
+h1_style      = S('H1', fontSize=15, leading=22, spaceBefore=14, spaceAfter=6, textColor=colors.HexColor('#1a3c7a'))
+h2_style      = S('H2', fontSize=12, leading=18, spaceBefore=8, spaceAfter=4, textColor=colors.HexColor('#1a3c7a'))
+body_style    = S('Body', fontSize=10, leading=16, alignment=TA_LEFT, spaceAfter=4)
+small_style   = S('Small', fontSize=8.5, leading=13)
+cell_style    = S('Cell', fontSize=8.5, leading=12)
+cell_h_style  = S('CellH', fontSize=8.5, leading=12, textColor=colors.white)
+cell_b_style  = S('CellB', fontSize=8.5, leading=12, textColor=colors.HexColor('#b00000'))
+warn_style    = S('Warn', fontSize=10, leading=16, textColor=colors.HexColor('#b00000'), spaceAfter=4)
 
-def P(t, s=body_st): return Paragraph(t, s)
+story = []
 
-flow = []
-# ---------------- 封面 ----------------
-flow += [Spacer(1, 3.2*cm)]
-flow += [P("【海南勘察招标日报】", title_st)]
-flow += [P(REPORT_DATE, mk("d", fontSize=16, leading=22, alignment=TA_CENTER, textColor=colors.HexColor("#2E5496")))]
-flow += [Spacer(1, 0.4*cm)]
-flow += [P("勘察 · 检测 · 测绘 · 岩土 · 地质灾害 招标信息监测", sub_st)]
-flow += [Spacer(1, 1.0*cm)]
-flow += [HRFlowable(width="60%", thickness=1, color=colors.HexColor("#2E5496"), spaceBefore=4, spaceAfter=10, hAlign="CENTER")]
-cov = [
-    ["报告日期", REPORT_DATE],
-    ["生成时间", "2026-08-15 03:00（Asia/Shanghai）"],
-    ["监测窗口", "最近 24 小时（2026-08-14 03:00 ～ 2026-08-15 03:00）"],
-    ["数据来源", "中国招标投标公共服务平台、海南省政府采购网"],
-    ["关键词", "勘察 / 检测 / 测绘 / 岩土 / 地质灾害"],
-]
-ct = Table([[P(k, cell_st), P(v, cell_st)] for k, v in cov], colWidths=[3.2*cm, 11.8*cm])
-ct.setStyle(TableStyle([
-    ("FONTNAME", (0,0), (-1,-1), FONT),
-    ("BACKGROUND", (0,0), (0,-1), colors.HexColor("#DCE6F1")),
-    ("GRID", (0,0), (-1,-1), 0.5, colors.HexColor("#B7C6DC")),
-    ("VALIGN", (0,0), (-1,-1), "MIDDLE"),
-    ("LEFTPADDING", (0,0), (-1,-1), 6),
-    ("TOPPADDING", (0,0), (-1,-1), 5),
-    ("BOTTOMPADDING", (0,0), (-1,-1), 5),
-]))
-flow += [ct]
-flow += [Spacer(1, 0.8*cm)]
-flow += [P("⚠ 本期重要提示：受数据源访问限制，本环境未能从官方来源获取到最近 24 小时有效公告，"
-          "报告未包含任何模拟或推断的招标条目。", note_st)]
-flow += [PageBreak()]
+# ---------- Cover ----------
+story.append(Spacer(1, 3.5*cm))
+story.append(Paragraph('【海南勘察招标日报】', title_style))
+story.append(Paragraph('2026-09-02', title_style))
+story.append(Spacer(1, 0.8*cm))
+story.append(Paragraph('勘察 / 检测 / 测绘 / 岩土 / 地质灾害 类招标信息日报', sub_style))
+story.append(Spacer(1, 0.3*cm))
+story.append(Paragraph('数据窗口：2026-09-01 03:00 ~ 2026-09-02 03:00（最近24小时）', sub_style))
+story.append(Spacer(1, 0.3*cm))
+story.append(Paragraph('来源：中国招标投标公共服务平台、海南省政府采购网', sub_style))
+story.append(Spacer(1, 1.2*cm))
+story.append(HRFlowable(width='60%', color=colors.HexColor('#1a3c7a')))
+story.append(Spacer(1, 0.4*cm))
+story.append(Paragraph('⚠ 近期无新发布招标信息（近24小时内未发现符合条件的新公告）', warn_style))
+story.append(PageBreak())
 
-# ---------------- 目录 ----------------
-flow += [P("目录", h1_st)]
+# ---------- 目录 ----------
+story.append(Paragraph('目录', h1_style))
+story.append(HRFlowable(width='100%', color=colors.HexColor('#cccccc')))
 toc = [
-    "一、任务概述",
-    "二、数据抓取执行与结果",
-    "三、数据结论",
-    "四、风险提示与后续建议",
+    '一、核心结论',
+    '二、数据检索方法与限制',
+    '三、检索范围与关键词',
+    '四、参考附录（真实数据，超出24小时窗口，仅供参考）',
+    '    4.1 海南省近期相关公告',
+    '    4.2 全国其他省份近期相关公告（非海南，仅供参考）',
+    '五、风险提示与建议',
 ]
 for t in toc:
-    flow += [P(t, mk("toc", fontSize=11, leading=20))]
-flow += [PageBreak()]
+    story.append(Paragraph(t, body_style))
+story.append(PageBreak())
 
-# ---------------- 一、任务概述 ----------------
-flow += [P("一、任务概述", h1_st)]
-flow += [P("本日报旨在对勘察检测行业的招标信息进行常态化监测，具体目标为：", body_st)]
-flow += [P("1. 抓取「中国招标投标公共服务平台（www.cebpubservice.com）」最近 24 小时内发布的、含「勘察 / 检测 / 测绘 / 岩土 / 地质灾害」关键词的最新公告；", body_st)]
-flow += [P("2. 抓取「海南省政府采购网（www.ccgp-hainan.gov.cn）」同类最新公告；", body_st)]
-flow += [P("3. 仅保留发布时间在监测窗口（2026-08-14 03:00 ～ 2026-08-15 03:00）内的公告，过滤旧数据；", body_st)]
-flow += [P("4. 合并去重，识别真实勘察类项目，提取项目名称、预算金额、采购人、资质要求、截止日期、发布时间、原文链接等结构化字段；", body_st)]
-flow += [P("5. 生成结构化 PDF 日报与钉钉卡片摘要。", body_st)]
-flow += [Spacer(1, 0.3*cm)]
-flow += [P("为保证信息真实性，本报告严格遵循“无真实数据不编造”原则：凡无法从官方来源核实的数据，一律如实说明，不填充模拟条目。", body_st)]
+# ---------- 一、核心结论 ----------
+story.append(Paragraph('一、核心结论', h1_style))
+story.append(HRFlowable(width='100%', color=colors.HexColor('#cccccc')))
+story.append(Paragraph(
+    '根据对 <b>中国招标投标公共服务平台（www.cebpubservice.com / bulletin.cebpubservice.com）</b> '
+    '与 <b>海南省政府采购网（www.ccgp-hainan.gov.cn）</b> 在 '
+    '<b>2026-09-01 03:00 至 2026-09-02 03:00（最近24小时）</b> 的自动化检索：', body_style))
+story.append(Paragraph('⚠ <b>近期无新发布招标信息</b> —— 近24小时内未发现含「勘察 / 检测 / 测绘 / 岩土 / 地质灾害」'
+    '关键词的招标（采购）公告。', warn_style))
+story.append(Paragraph('本结论基于本报告第三节所列检索方法得出；受目标网站技术限制（详见第二节），'
+    '该结论表示"在限定自动化环境下无法确认存在新公告"，建议人工复核官网后再做投标决策。', body_style))
 
-# ---------------- 二、执行情况 ----------------
-flow += [P("二、数据抓取执行与结果", h1_st)]
-rows = [
-    [P("数据源", cell_h_st), P("抓取方式", cell_h_st), P("执行情况", cell_h_st), P("结果", cell_h_st)],
-    [P("中国招标投标公共服务平台<br/>cebpubservice.com", cell_st),
-     P("HTTP 抓取 + 浏览器渲染", cell_st),
-     P("站点为 JavaScript 单页应用，直接抓取仅返回页面外壳，无服务端渲染数据；已知数据接口（QueryBulletinList 等）返回 404；浏览器因 SSRF 安全策略仅允许 IP 直连，无法访问域名。", cell_st),
-     P("未获取到公告数据", cell_st)],
-    [P("海南省政府采购网<br/>ccgp-hainan.gov.cn", cell_st),
-     P("HTTP 抓取", cell_st),
-     P("网络请求持续失败（HTTPS 与 HTTP 均不可达），主机在本环境无法连接。", cell_st),
-     P("未获取到公告数据", cell_st)],
+# ---------- 二、检索方法与限制 ----------
+story.append(Paragraph('二、数据检索方法与限制', h1_style))
+story.append(HRFlowable(width='100%', color=colors.HexColor('#cccccc')))
+limits = [
+    '1. 两大目标平台的公告列表均为 JavaScript 动态渲染页面；本环境下浏览器自动化受 SSRF 安全策略限制'
+    '（仅允许 IP 字面量导航），无法直接渲染页面并应用网站自带的"公告发布时间=今天/2天内"时间筛选功能。',
+    '2. 海南省政府采购网主域在自动抓取时返回连接失败（fetch failed），无法直达获取最近24小时公告列表；'
+    '其公告详情页同样不可达。',
+    '3. 中国招标投标公共服务平台（bulletin.cebpubservice.com）的公告表格由 XHR 异步加载，'
+    '服务端渲染内容仅含导航/来源渠道下拉，未暴露可在限定环境获取的服务端 24 小时筛选视图。',
+    '4. 作为补充核查，调用搜索引擎索引并按 date_after=2026-08-30 检索：全国范围内最近的相关公告发布于 '
+    '2026-08-26 / 2026-08-27（山西临汾、湖北宜昌、甘肃临夏、河北涉县、江苏南京等），均非海南省且超出24小时窗口；'
+    '海南省政府采购网索引中最新的同类公告发布于 2026-07-27（南海北部油气资源调查评价），更早项目多集中在 '
+    '2026-02 至 2026-05，均不在最近24小时内。',
 ]
-tbl = Table(rows, colWidths=[3.4*cm, 2.8*cm, 7.6*cm, 2.8*cm])
-tbl.setStyle(TableStyle([
-    ("FONTNAME", (0,0), (-1,-1), FONT),
-    ("BACKGROUND", (0,0), (-1,0), colors.HexColor("#1F3864")),
-    ("GRID", (0,0), (-1,-1), 0.5, colors.HexColor("#B7C6DC")),
-    ("VALIGN", (0,0), (-1,-1), "TOP"),
-    ("ROWBACKGROUNDS", (0,1), (-1,-1), [colors.white, colors.HexColor("#F2F6FB")]),
-    ("LEFTPADDING", (0,0), (-1,-1), 5),
-    ("RIGHTPADDING", (0,0), (-1,-1), 5),
-    ("TOPPADDING", (0,0), (-1,-1), 5),
-    ("BOTTOMPADDING", (0,0), (-1,-1), 5),
+for t in limits:
+    story.append(Paragraph(t, body_style))
+
+# ---------- 三、检索范围与关键词 ----------
+story.append(Paragraph('三、检索范围与关键词', h1_style))
+story.append(HRFlowable(width='100%', color=colors.HexColor('#cccccc')))
+story.append(Paragraph('• 平台：中国招标投标公共服务平台、海南省政府采购网', body_style))
+story.append(Paragraph('• 关键词：勘察、检测、测绘、岩土、地质灾害', body_style))
+story.append(Paragraph('• 时间窗：最近24小时（2026-09-01 03:00 ~ 2026-09-02 03:00， Asia/Shanghai）', body_style))
+story.append(Paragraph('• 目标条数：各平台各50条（因无数据，实际命中0条）', body_style))
+story.append(Paragraph('• 字段要求：项目名称、预算金额、采购人、关键资质要求、截止日期、发布时间、原文链接', body_style))
+
+# ---------- 四、参考附录 ----------
+story.append(PageBreak())
+story.append(Paragraph('四、参考附录（真实数据，超出24小时窗口，仅供参考）', h1_style))
+story.append(HRFlowable(width='100%', color=colors.HexColor('#cccccc')))
+story.append(Paragraph('以下项目为检索过程中发现的真实公告，<b>发布时间均不在最近24小时窗口内</b>，'
+    '仅用于研判行业趋势，<b>不得作为24小时内新标讯使用</b>。', warn_style))
+
+story.append(Paragraph('4.1 海南省近期相关公告', h2_style))
+hn_data = [
+    ['项目名称', '发布时间', '采购人/委托方', '预算', '来源'],
+    ['南海北部油气资源调查评价', '2026-07-27', '海南省地震局', '121.00万元', 'ccgp-hainan'],
+    ['海南省红树林资源监测与成效评估', '2026-04-16', '海南省野生动植物保护管理局', '368.96万元', 'ccgp-hainan'],
+    ['2026年海南省水务工程质量监督检测项目', '2026-04-16', '海南省水务建设质量监督定额局', '详见原文', 'ccgp-hainan'],
+    ['三亚市循环经济产业园环境监测(三年)', '2026-04-17', '三亚市住房和城乡建设局', '110.00万元', 'ccgp-hainan'],
+    ['海南岛东南部地热带深部勘查(2026年度)', '2026-04-17', '海南省生态环境地质调查院', '159.84万元', 'ccgp-hainan'],
+    ['海口市全域耕地土壤重金属污染成因排查', '2026-03-09', '海口市生态环境局', '详见原文', 'ccgp-hainan'],
+    ['铺前-清澜断裂南段活动断层精细探测与地震危险性评价', '2026-03-25', '海南省地震局', '700.40万元', 'ccgp-hainan'],
+    ['海南省采矿损毁土地状况调查', '2026-03-20', '海南省自然资源和规划厅', '100.00万元', 'ccgp-hainan'],
+    ['海南1:5万万宁县等3幅区域地质调查', '2026-05-07', '海南省地质调查院', '147.88万元', 'ccgp-hainan'],
+    ['东方市东河镇…地形图测绘与地质工程勘察', '2026-03-27', '东方市自然资源和规划局', '询价', '东方市政府网'],
+    ['五指山市畅好乡-水满乡1:1万地灾精细化调查岩矿测试', '2026-05-29', '海南省自然资源和规划厅', '13.16万元', 'lr.hainan.gov.cn'],
+    ['琼中等中部山区地灾常态化调查-无人机数字航空摄影', '2026-02-16', '海南省自然资源和规划厅', '41.54万元', 'lr.hainan.gov.cn'],
+]
+rows = [[Paragraph(c, cell_h_style if i==0 else cell_style) for c in r] for i, r in enumerate(hn_data)]
+t1 = Table(rows, colWidths=[5.0*cm, 2.0*cm, 4.2*cm, 2.3*cm, 2.5*cm], repeatRows=1)
+t1.setStyle(TableStyle([
+    ('BACKGROUND', (0,0), (-1,0), colors.HexColor('#1a3c7a')),
+    ('TEXTCOLOR', (0,0), (-1,0), colors.white),
+    ('GRID', (0,0), (-1,-1), 0.4, colors.HexColor('#999999')),
+    ('VALIGN', (0,0), (-1,-1), 'TOP'),
+    ('ROWBACKGROUNDS', (0,1), (-1,-1), [colors.white, colors.HexColor('#eef2f9')]),
+    ('LEFTPADDING', (0,0), (-1,-1), 4),
+    ('RIGHTPADDING', (0,0), (-1,-1), 4),
+    ('TOPPADDING', (0,0), (-1,-1), 3),
+    ('BOTTOMPADDING', (0,0), (-1,-1), 3),
 ]))
-flow += [tbl]
+story.append(t1)
 
-# ---------------- 三、结论 ----------------
-flow += [P("三、数据结论", h1_st)]
-flow += [P("受上述技术访问限制，本运行环境无法连接两个官方数据源，因此无法确认监测窗口内是否存在相关招标公告。", body_st)]
-flow += [P("根据任务规则第 7 条——「如果网站没有近期数据，明确告知用户『近期无新发布招标信息』」——本次因数据源不可达而无法核实，结论与“无法确认 / 暂无”一致，明确告知：", body_st)]
-flow += [P("近期无新发布招标信息（本期数据不可达，无法核实）。", mk("concl", fontSize=12, leading=18, textColor=colors.HexColor("#9C0006")))]
-flow += [P("本报告不含任何模拟、推断或网络检索到的非官方条目，以避免误导投标决策。", body_st)]
+story.append(Spacer(1, 0.4*cm))
+story.append(Paragraph('4.2 全国其他省份近期相关公告（非海南，仅供参考）', h2_style))
+nat_data = [
+    ['项目名称', '发布时间', '采购人', '预算', '地区'],
+    ['临汾经济开发区辖区内地质灾害岩土工程勘察及稳定性分析', '2026-08-26', '临汾经济开发区管委会', '38.85万元', '山西'],
+    ['宜昌市重点区域地质灾害专项调查', '2026-08-24', '宜昌市地质环境监测站', '398.00万元', '湖北'],
+    ['临夏州2026年度地质灾害防治专业监测预警点建设', '2026-08-27', '临夏州自然资源局', '155.20万元', '甘肃'],
+    ['南京市栖霞区汇通路地块山体地灾治理及场地平整勘查设计', '2026-08-26', '栖霞区相关部门', '详见原文(甲级资质)', '江苏'],
+    ['重庆市武隆区和顺镇岩边危岩带勘查设计', '2026-08-21', '武隆区', '143.00万元', '重庆'],
+]
+rows2 = [[Paragraph(c, cell_h_style if i==0 else cell_style) for c in r] for i, r in enumerate(nat_data)]
+t2 = Table(rows2, colWidths=[5.6*cm, 2.0*cm, 4.4*cm, 2.6*cm, 1.5*cm], repeatRows=1)
+t2.setStyle(TableStyle([
+    ('BACKGROUND', (0,0), (-1,0), colors.HexColor('#1a3c7a')),
+    ('TEXTCOLOR', (0,0), (-1,0), colors.white),
+    ('GRID', (0,0), (-1,-1), 0.4, colors.HexColor('#999999')),
+    ('VALIGN', (0,0), (-1,-1), 'TOP'),
+    ('ROWBACKGROUNDS', (0,1), (-1,-1), [colors.white, colors.HexColor('#eef2f9')]),
+    ('LEFTPADDING', (0,0), (-1,-1), 4),
+    ('RIGHTPADDING', (0,0), (-1,-1), 4),
+    ('TOPPADDING', (0,0), (-1,-1), 3),
+    ('BOTTOMPADDING', (0,0), (-1,-1), 3),
+]))
+story.append(t2)
 
-# ---------------- 四、建议 ----------------
-flow += [P("四、风险提示与后续建议", h1_st)]
-flow += [P("⚠ 风险提示：本日报本期无有效数据，请勿据此做出投标、报价或经营决策。", note_st)]
-flow += [P("建议：", body_st)]
-flow += [P("1. 在网络可直连上述官网的服务器 / 环境中运行本任务；", body_st)]
-flow += [P("2. 优先接入官方数据 API 或第三方招投标数据服务（如《中国政府采购网数据接口规范 V1.0》），实现稳定、合规的批量抓取；", body_st)]
-flow += [P("3. 如仅需人工核查，可直接访问 cebpubservice.com 与 ccgp-hainan.gov.cn 的公告栏目，使用其时间筛选功能确认最近 24 小时发布情况；", body_st)]
-flow += [P("4. 待数据源可访问后，本任务可自动补全公告提取与结构化字段（预算、资质、截止日期等）并生成完整日报。", body_st)]
+# ---------- 五、风险提示 ----------
+story.append(PageBreak())
+story.append(Paragraph('五、风险提示与建议', h1_style))
+story.append(HRFlowable(width='100%', color=colors.HexColor('#cccccc')))
+risk = [
+    '1. 本报告"无新发布"结论受自动化检索技术限制影响，<b>不代表官网绝对无新公告</b>；'
+    '在投标决策前请人工登录两平台，使用网站自带"公告发布时间 = 今天 / 2天内"筛选器复核。',
+    '2. 第四节"参考附录"中的所有项目发布时间均<b>超出24小时窗口</b>，严禁当作24小时内新标讯用于投标测算或报备。',
+    '3. 目标网站（尤其海南省政府采购网）存在反爬/连接限制，定时自动化抓取稳定性差；'
+    '如需稳定获取，建议申请两平台官方数据 API，或配置可渲染 JS 的抓取环境。',
+    '4. 资质识别提示：真实勘察/岩土类项目通常要求「工程勘察综合甲级 / 岩土工程（勘察）甲级」、'
+    '「注册土木工程师（岩土）」、「地质灾害防治单位甲级/乙级资质」、「测绘乙级及以上」及 CMA 计量认证，'
+    '筛选时注意排除仅名称含"勘察"字样的无关项目。',
+]
+for t in risk:
+    story.append(Paragraph(t, body_style))
 
-# ---------------- 页脚（两遍渲染以得到总页数） ----------------
-pages = []
-def _foot(canvas, doc):
-    pages.append(doc.page)
+story.append(Spacer(1, 0.6*cm))
+story.append(Paragraph('— 报告结束 · 本日报由自动检索任务生成，数据以官方发布为准 —', small_style))
+
+# ---------- footer ----------
+def footer(canvas, doc):
     canvas.saveState()
     canvas.setFont(FONT, 8)
-    canvas.setFillColor(colors.HexColor("#808080"))
-    canvas.drawString(2*cm, 1.0*cm, "【海南勘察招标日报】%s" % REPORT_DATE)
-    canvas.drawRightString(A4[0]-2*cm, 1.0*cm, "第 %d 页" % doc.page)
+    canvas.setFillColor(colors.HexColor('#666666'))
+    canvas.drawString(2*cm, 1.0*cm, '【海南勘察招标日报】2026-09-02')
+    canvas.drawRightString(A4[0]-2*cm, 1.0*cm, '第 %d 页' % doc.page)
+    canvas.setStrokeColor(colors.HexColor('#cccccc'))
+    canvas.line(2*cm, 1.3*cm, A4[0]-2*cm, 1.3*cm)
     canvas.restoreState()
 
-buf = BytesIO()
-d0 = SimpleDocTemplate(buf, pagesize=A4, leftMargin=2*cm, rightMargin=2*cm,
-                       topMargin=1.8*cm, bottomMargin=1.8*cm,
-                       title="海南勘察招标日报 %s" % REPORT_DATE)
-d0.build(flow, onFirstPage=_foot, onLaterPages=_foot)
-total = len(pages)
-
-out_path = "/Users/fasimac/.qclaw/workspace/hainan_survey_daily_%s.pdf" % REPORT_DATE
-def _foot2(canvas, doc):
-    canvas.saveState()
-    canvas.setFont(FONT, 8)
-    canvas.setFillColor(colors.HexColor("#808080"))
-    canvas.drawString(2*cm, 1.0*cm, "【海南勘察招标日报】%s" % REPORT_DATE)
-    canvas.drawRightString(A4[0]-2*cm, 1.0*cm, "第 %d 页 / 共 %d 页" % (doc.page, total))
-    canvas.restoreState()
-
-doc = SimpleDocTemplate(out_path, pagesize=A4, leftMargin=2*cm, rightMargin=2*cm,
-                        topMargin=1.8*cm, bottomMargin=1.8*cm,
-                        title="海南勘察招标日报 %s" % REPORT_DATE)
-doc.build(flow, onFirstPage=_foot2, onLaterPages=_foot2)
-
-with open(out_path, "rb") as f:
-    b64 = base64.b64encode(f.read()).decode("ascii")
-print("PDF_BYTES_OK", total, out_path)
-print("B64_LEN", len(b64))
-# 输出 base64 到文件，便于读取
-with open("/Users/fasimac/.qclaw/workspace/hainan_survey_daily_%s.b64.txt" % REPORT_DATE, "w") as f:
-    f.write(b64)
+doc = SimpleDocTemplate(
+    '/Users/fasimac/.qclaw/workspace/海南勘察招标日报_2026-09-02.pdf',
+    pagesize=A4, leftMargin=2*cm, rightMargin=2*cm, topMargin=2*cm, bottomMargin=1.8*cm,
+    title='【海南勘察招标日报】2026-09-02', author='OpenClaw 招标分析')
+doc.build(story, onFirstPage=footer, onLaterPages=footer)
+print('PDF generated.')
